@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary -->
+    <color name="colorPrimaryDarkUltra">#1976d2</color>
+    <color name="colorPrimaryDark">#1e88e5</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryLight">#42a5f5</color>
+    <color name="colorPrimaryLightUltra">#64b5f6</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Text -->
+    <color name="colorTextPrimary">#de2196F3</color>
+    <color name="colorTextSecondary">#8a2196F3</color>
+    <color name="colorTextHint">#612196F3</color>
+    <color name="colorTextWhite">#fff</color>
+
+    <!-- Background -->
+    <color name="colorAppBar">#E0E0E0</color>
+    <color name="colorBackGround">#fcfcfc</color>
+    <color name="colorCardOrDialog">#093272</color>
+    <color name="colorFiligram">#66000000</color>
+    <color name="colorNonSelect">#96000000</color>
+    <color name="colorImport">#F44336</color>
+
+    <!-- DashBoard -->
+    <color name="lightgray">#E0E0E0</color>
+    <color name="deeppurple">#651FFF</color>
+    <color name="yellow">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkblue">#2979FF</color>
+    <color name="pink">#F50057</color>
+    <color name="red">#FF1744</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="blue_overlay">#661976d2</color>
+    <color name="blue">#00B0FF</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <!-- Progress -->
+    <color name="colorProgress">#E0E0E0</color>
+
+    <!-- Choose Color -->
+
+    <!-- Social Media -->
+    <color name="facebook">#3b5998</color>
+    <color name="twitter">#00aced</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#0000</color>
+</resources>
