@@ -5,9 +5,90 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_gson"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:gravity="left">
+
+        <EditText
+            android:id="@+id/editText_name_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="NAME : "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_name_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/editText_name_item_recyclerView"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/editText_name_item_recyclerView"
+            android:gravity="bottom"
+            android:text="..."
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editText_age_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_name_item_recyclerView"
+            android:text="AGE : "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_age_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_name_item_recyclerView"
+            android:layout_alignBottom="@id/editText_age_item_recyclerView"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/editText_age_item_recyclerView"
+            android:gravity="bottom"
+            android:text="..."
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editText_car_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_age_item_recyclerView"
+            android:text="CAR : "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_car_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_age_item_recyclerView"
+            android:layout_alignBottom="@id/editText_car_item_recyclerView"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/editText_car_item_recyclerView"
+            android:gravity="bottom"
+            android:text="..."
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editText_car_models_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_car_item_recyclerView"
+            android:text="CAR MODELS : "
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textView_car_models_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView_car_item_recyclerView"
+            android:layout_alignBottom="@id/editText_car_models_item_recyclerView"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/editText_car_models_item_recyclerView"
+            android:gravity="bottom"
+            android:text="..."
+            android:textAlignment="center" />
+    </RelativeLayout>
 
 </LinearLayout>

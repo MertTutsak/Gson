@@ -15,12 +15,12 @@ public class Person {
     private String name;
 
     @SerializedName("age")
-    private String age;
+    private int age;
 
     @SerializedName("car")
     private Car car;
 
-    public Person(String name, String age, Car car) {
+    public Person(String name, int age, Car car) {
         this.name = name;
         this.age = age;
         this.car = car;
@@ -37,11 +37,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

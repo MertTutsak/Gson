@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.mert.gsonproject.R;
 import com.mert.gsonproject.data.model.Person;
@@ -19,30 +20,44 @@ import butterknife.BindView;
 
 public class GsonFragment extends BaseFragment {
 
-    @BindView(R.id.recyclerView_gson)
-    RecyclerView recyclerView;
+    public TextView nameTextView;
 
-    RecyclerView.LayoutManager layoutManager;
-    RecyclerAdapter adapter;
+    public TextView ageTextView;
+
+    public TextView carTextView;
+
+    public TextView carModelsTextView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gson, container, false);
 
-        layoutManager = new LinearLayoutManager(baseActivity);
+        Person person = baseActivity.dataManager.getPerson();
 
-        recyclerView.setHasFixedSize(true);
+        this.nameTextView = view.findViewById(R.id.textView_name_item_recyclerView);
+        this.ageTextView = view.findViewById(R.id.textView_age_item_recyclerView);
+        this.carTextView = view.findViewById(R.id.editText_car_item_recyclerView);
+        this.carModelsTextView = view.findViewById(R.id.editText_car_models_item_recyclerView);
 
-        baseActivity.dataManager.getPerson();
+        if (person.getName() != null) {
+            nameTextView.setText(person.getName());
+        }
 
-        ArrayList<Person> personArrayList = new ArrayList<>();
+        if (person.getAge() != -1) {
+            ageTextView.setText(person.getAge());
+        }
 
-        personArrayList.add(baseActivity.dataManager.getPerson());
+        if (person.getCar() != null) {
+            carTextView.setText(person.getCar().getName());
+            String models = "";
+            for (Object model : person.getCar().getModels()) {
+                models += String.valueOf(model) + ", ";
+            }
 
-        adapter = new RecyclerAdapter(personArrayList);
+            carModelsTextView.setText(models);
+        }
 
-        recyclerView.setAdapter(adapter);
 
         return view;
     }

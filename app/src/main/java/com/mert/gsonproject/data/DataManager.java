@@ -15,45 +15,24 @@ public class DataManager {
     public DataManager(Activity activity) {
         this.activity = activity;
 
-        gsonHelper = new GsonHelper();
+        gsonHelper = new GsonHelper(activity);
     }
 
     public Person getPerson() {
         String json = "{\n" +
                 "  \"name\": \"John\",\n" +
                 "  \"age\": 30,\n" +
-                "  \"cars\": [\n" +
-                "    {\n" +
-                "      \"name\": \"Ford\",\n" +
-                "      \"models\": [\n" +
-                "        \"Fiesta\",\n" +
-                "        \"Focus\",\n" +
-                "        \"Mustang\"\n" +
-                "      ]\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"name\": \"BMW\",\n" +
-                "      \"models\": [\n" +
-                "        \"320\",\n" +
-                "        \"X3\",\n" +
-                "        \"X5\"\n" +
-                "      ]\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"name\": \"Fiat\",\n" +
-                "      \"models\": [\n" +
-                "        \"500\",\n" +
-                "        \"Panda\"\n" +
-                "      ]\n" +
-                "    }\n" +
-                "  ]\n" +
+                "  \"car\": {\n" +
+                "    \"name\": \"Ford\",\n" +
+                "    \"models\": [\n" +
+                "      \"Fiesta\",\n" +
+                "      \"Focus\",\n" +
+                "      \"Mustang\"\n" +
+                "    ]\n" +
+                "  }\n" +
                 "}";
 
         return gsonHelper.fromJson(json);
-    }
-
-    public String getJsonbyPerson(Person person) {
-        return gsonHelper.toJson(person);
     }
 
 

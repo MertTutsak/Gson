@@ -12,8 +12,5 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         initView(new GsonFragment());
-
-
-
     }
 }

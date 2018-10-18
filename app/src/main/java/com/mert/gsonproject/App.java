@@ -14,10 +14,5 @@ public class App extends android.app.Application {
         super.onCreate();
         //Root Path
         String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-        //Realm
-        Realm.init(this);
-        RealmConfiguration configuration = new RealmConfiguration.Builder().name("passwords.realm").directory(new File(rootPath+"/realm/")).build();
-        Realm.setDefaultConfiguration(configuration);
     }
 }
