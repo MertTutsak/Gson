@@ -1,6 +1,7 @@
 package com.mert.gsonproject.data;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.mert.gsonproject.data.db.gsons.GsonHelper;
 import com.mert.gsonproject.data.model.Person;
@@ -15,7 +16,7 @@ public class DataManager {
     public DataManager(Activity activity) {
         this.activity = activity;
 
-        gsonHelper = new GsonHelper(activity);
+        this.gsonHelper = new GsonHelper(activity);
     }
 
     public Person getPerson() {
@@ -32,6 +33,7 @@ public class DataManager {
                 "  }\n" +
                 "}";
 
+        Log.d(this.getClass().getSimpleName(), "Json Text :" + json);
         return gsonHelper.fromJson(json);
     }
 
