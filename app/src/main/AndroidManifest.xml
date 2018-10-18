@@ -3,7 +3,7 @@
     package="com.mert.gsonproject">
 
     <application
-        android:name="com.mert.gsonproject.App"
+        android:name="com.mert.gsonproject.Agpp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
