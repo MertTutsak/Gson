@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.mert.gsonproject.data.db.gsons.GsonHelper;
 import com.mert.gsonproject.data.model.Person;
+import com.mert.gsonproject.utils.AssetsControl;
 
 public class DataManager {
 
@@ -19,23 +20,10 @@ public class DataManager {
         this.gsonHelper = new GsonHelper(activity);
     }
 
-    public Person getPerson() {
-        String json = "{\n" +
-                "  \"name\": \"John\",\n" +
-                "  \"age\": 30,\n" +
-                "  \"car\": {\n" +
-                "    \"name\": \"Ford\",\n" +
-                "    \"models\": [\n" +
-                "      \"Fiesta\",\n" +
-                "      \"Focus\",\n" +
-                "      \"Mustang\"\n" +
-                "    ]\n" +
-                "  }\n" +
-                "}";
-
-        Log.d(this.getClass().getSimpleName(), "Json Text :" + json);
-        return gsonHelper.fromJson(json);
+    public Person getPersonbyString() {
+        AssetsControl assetsControl = new AssetsControl(activity);
+        String jsonString = assetsControl.toStringFromAsset("json_file.json");
+        Log.d(this.getClass().getSimpleName(), "Json Text :" + jsonString);
+        return gsonHelper.fromJsonString(jsonString);
     }
-
-
 }

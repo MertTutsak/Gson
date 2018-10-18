@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class GsonFragment extends BaseFragment {
+public class GsonFragment extends BaseFragment implements Gson.View {
 
     public TextView nameTextView;
 
@@ -29,18 +29,37 @@ public class GsonFragment extends BaseFragment {
 
     public TextView carModelsTextView;
 
+    //Presenter
+    private GsonPresenter presenter;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gson, container, false);
 
-        Person person = baseActivity.dataManager.getPerson();
-
+        //View
         this.nameTextView = view.findViewById(R.id.textView_name_item_recyclerView);
         this.ageTextView = view.findViewById(R.id.textView_age_item_recyclerView);
         this.carTextView = view.findViewById(R.id.textView_car_item_recyclerView);
         this.carModelsTextView = view.findViewById(R.id.textView_car_models_item_recyclerView);
 
+        //Presenter
+        this.presenter = new GsonPresenter(baseActivity, GsonFragment.this);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (presenter == null) {
+            presenter = new GsonPresenter(baseActivity, GsonFragment.this);
+        }
+        presenter.Completed();
+    }
+
+    @Override
+    public void initView(Person person) {
         if (person.getName() != null) {
             nameTextView.setText(person.getName());
             Log.d(this.getClass().getSimpleName(), "age :" + person.getName());
@@ -62,9 +81,5 @@ public class GsonFragment extends BaseFragment {
 
             carModelsTextView.setText(models);
         }
-
-
-        return view;
     }
-
 }

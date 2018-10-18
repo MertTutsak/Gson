@@ -13,9 +13,11 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.mert.gsonproject.data.model.Car;
 import com.mert.gsonproject.data.model.Person;
 
+import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -40,8 +42,19 @@ public class GsonHelper {
 
     }
 
-    public Person fromJson(String json) {
-        Person person = new Person(getName(json), getAge(json), getCar(json));
+    public Person fromJsonString(String json) {
+        //Kısa Yol. Ancak object olarak çekemezsin.
+        Person person = gson.fromJson(json, Person.class);
+
+        //Person person = new Person(getName(json), getAge(json), getCar(json));
+        return person;
+    }
+
+    public Person fromJsonReader(Reader reader) {
+        //Kısa Yol. Ancak object olarak çekemezsin.
+        Person person = gson.fromJson(reader, Person.class);
+
+        //Person person = new Person(getName(json), getAge(json), getCar(json));
         return person;
     }
 
@@ -111,7 +124,6 @@ public class GsonHelper {
         }
         return null;
     }
-
 
     public String toJson(Person person) {
         String json = gson.toJson(person);
