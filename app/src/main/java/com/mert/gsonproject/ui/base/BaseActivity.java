@@ -9,10 +9,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.mert.gsonproject.R;
-import com.mert.gsonproject.data.db.sharedpreferences.SharedPreferences;
-import com.mert.gsonproject.singletons.SingletonInfo;
-import com.mert.gsonproject.singletons.SingletonRealm;
-import com.mert.gsonproject.singletons.SingletonUser;
+import com.mert.gsonproject.data.DataManager;
 import com.mert.gsonproject.ui.dialogs.CloseDialog;
 
 public class BaseActivity extends FragmentActivity {
@@ -20,20 +17,11 @@ public class BaseActivity extends FragmentActivity {
     //Bundle
     private Bundle bundle;
 
-    //Realm
-    public SingletonRealm singletonRealm;
-
-    //User
-    public SingletonUser singletonUser;
-
-    //Info
-    public SingletonInfo singletonInfo;
-
-    //SharedPreferences
-    public SharedPreferences sharedPreferences;
-
     //FrameLayout
     private FrameLayout frameLayout;
+
+    //DataManager
+    public DataManager dataManager;
 
     /* Dialog */
     //Close
@@ -47,20 +35,11 @@ public class BaseActivity extends FragmentActivity {
         //FrameLAyout
         frameLayout = (FrameLayout) findViewById(R.id.base_framelayout);
 
-        //SharedPreferences
-        sharedPreferences = new SharedPreferences(BaseActivity.this);
-
-        //Realm
-        singletonRealm = singletonRealm.getInstance(BaseActivity.this);
-
-        //Info
-        singletonInfo = singletonInfo.getInstance(BaseActivity.this);
-
-        //User
-        singletonUser = singletonUser.getInstance();
-
         //Tam ekran yapmak için
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //DataManager
+        dataManager = new DataManager(BaseActivity.this);
 
         //Bundle
         bundle = new Bundle();

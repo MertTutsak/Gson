@@ -3,11 +3,6 @@ package com.mert.gsonproject.ui.base;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.mert.gsonproject.data.db.sharedpreferences.SharedPreferences;
-import com.mert.gsonproject.singletons.SingletonInfo;
-import com.mert.gsonproject.singletons.SingletonRealm;
-import com.mert.gsonproject.singletons.SingletonUser;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -82,36 +77,5 @@ public class BaseFragment extends Fragment {
         Calendar cal = getCalendar();
         cal.setTime(new Date(val));
         return cal;
-    }
-
-    //Realm
-    protected long getNextId(RealmObject c) {
-        Number currentIdNum = baseActivity.singletonRealm.getRealm().where(c.getClass()).max("id");
-        int nextId = -1;
-        if (currentIdNum == null) {
-            nextId = 0;
-        } else {
-            nextId = currentIdNum.intValue() + 1;
-        }
-        return nextId;
-    }
-
-    protected SingletonRealm getSingletonRealm() {
-        return baseActivity.singletonRealm;
-    }
-
-    //User
-    protected SingletonUser getSingletonUser() {
-        return baseActivity.singletonUser;
-    }
-
-    //Info
-    protected SingletonInfo getSingletonInfo() {
-        return baseActivity.singletonInfo;
-    }
-
-    //SharedPreferences
-    protected SharedPreferences getSharedPreferences() {
-        return baseActivity.sharedPreferences;
     }
 }
